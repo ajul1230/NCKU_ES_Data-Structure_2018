@@ -1,4 +1,4 @@
-// 成大工科系109級 周筳凱，用2 Bits Tree 去猜數字
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -70,20 +70,15 @@ void read(char *fclue){
 }
 
 void TwoBitCheck(){
-    //printf("TWC\n");
     int TA=0;
     int TB=0;
-    //printf("cp:%d\n",cp);
-    //printf("CHECK: data[cp]:%c,data[cp+1]:%c\n",data[cp],data[cp+1]);
-    //printf("CHECK: ans[cp]:%c,ans[cp+1]:%c\n",ans[cp],ans[cp+1]);
+    
 
     if(data[cp+1]==ans[cp+1]){
         TA++;
-        //printf("TA1\n");
     }
     else if(data[cp]==ans[cp]){
 
-        //printf("TA2\n");
         TA++;
     }
     else if(data[cp]==ans[cp+1])
@@ -92,7 +87,6 @@ void TwoBitCheck(){
         if(data[cp+1]==ans[cp]){
         TB++;
         }
-        //printf("TB1\n");
         if(data[cp+1]==ans[cp+1]){
             TB--;
         }
@@ -102,13 +96,12 @@ void TwoBitCheck(){
         if(data[cp]==ans[cp+1]){
             TB++;
         }
-        //printf("TB2\n");
+        
         if(data[cp]==ans[cp]){
             TB--;
         }
     }
-    //printf("TA:%d\n",TA);
-    //printf("TB:%d\n",TB);
+   
     AN=TA;
     BN=TB;
     if(data[cp]==ans[cp]&&data[cp+1]==ans[cp+1]){
@@ -126,7 +119,7 @@ char *check(char data[MAX_LENGTH], char answer[MAX_LENGTH]) {
                               0, 0, 0, 0, 0};
     int data_appear_times[10] = {0, 0, 0, 0, 0, 
                                0, 0, 0, 0, 0};
-    //calculate A
+
     for(i=0; i<MAX_LENGTH; i++) {
         if(data[i] == answer[i]) {
             A++;
@@ -136,7 +129,7 @@ char *check(char data[MAX_LENGTH], char answer[MAX_LENGTH]) {
             data_appear_times[data[i]-'0']++;
         }  
     }
-  // calculate B
+  
     int B = 0;
     for(i=0; i<10; i++) {
         if(data_appear_times[i] >= ans_appear_times[i]) {
@@ -186,16 +179,15 @@ void Travel(NODE *root){
         TwoBitCheck();
         //printf("AN:%d,BN:%d\n",AN,BN);
         Travel(root);
-    } //printf("TWOBITFOUND\n");
-    //printf("finalArr[cp+1,cp]%c,%c\n",finalArr[cp+1],finalArr[cp]);
+    } 
 
 }
 
 char *guess(char *clue){
-    //'data' is the number what you guess
+   
 
     NODE *root=newNODE("01");
-//
+
     root->XX =newNODE("23");
 
     root->XX->XX =newNODE("45");
